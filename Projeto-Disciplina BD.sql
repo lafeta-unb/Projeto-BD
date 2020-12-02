@@ -1,4 +1,4 @@
-/*Projeto Final da Disciplina Banco de Dados da UnB
+/*Projeto Final Completo da Disciplina Banco de Dados da UnB
 Alunos: Davi Martinez e Eduardo Lafetá*/
 
 CREATE DATABASE `Projeto_BD`;
