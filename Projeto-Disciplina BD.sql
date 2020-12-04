@@ -296,6 +296,6 @@ select documentação.Cod_Solicitação, secretaria.Resultado
 from documentação inner join secretaria on documentação.Cod_Solicitação = secretaria.Cod_Solicitação
 where TIMESTAMPDIFF (DAY, DATA_GERADO, CURRENT_DATE) >= Tempo;
 call pr_tempo_solicitação (200);
-*/
+
  
  
