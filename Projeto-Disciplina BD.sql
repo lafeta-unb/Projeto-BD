@@ -179,7 +179,7 @@ CREATE TABLE `presença` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION);
  
- /*POVOANDO - Para inserir os dados utilizamos os comandos abaixo:
+ /*POVOANDO - Para inserir os dados utilizamos os comandos abaixo:*/
  
  insert into serie(Série, Turma, Turno)
  values ("1º","A","Matutino"), ("1º","B","Matutino"), ("1º","C","Vespertino"), ("1º","D","Vespertino"), 
@@ -243,9 +243,9 @@ insert into presença(Cod_Disciplina, Cod_Aluno, Data_Aula, Presença)
 values (121510, 1234, '2020-03-15', "Presente"), (121511, 1235, '2020-04-03', "Faltou"), 
 (121513, 1238, '2020-09-03', "Faltou"), (121512, 1237, '2020-07-03', "Presente"),
 (121514, 1235, '2020-10-15', "Presente");
-*/
 
-/*ALGEBRA RELACIONAL - a seguir comandos em álgebra relacional
+
+/*ALGEBRA RELACIONAL - a seguir comandos em álgebra relacional*/
 
 select a.Nome, q.nota, d.nome as nome_disciplina from aluno as a
 join quadro_de_notas as q
@@ -277,19 +277,19 @@ join secretaria
 on aluno.cod_aluno = secretaria.cod_aluno_solicitante
 join documentação
 on secretaria.cod_solicitação = documentação.cod_solicitação;
-*/
+
 /*VIEW - a view abaixo tem o objetivo de subsidiar a tomada de decisão em relação aos alunos 
 que ficaram com notas inferiores a 5 e tem o curzamento de dados com a tabela email, ou seja, já pode 
-ser enviado um e-mail para os alunos que tiraram notas não satisfatórias.
+ser enviado um e-mail para os alunos que tiraram notas não satisfatórias.*/
 
 Create or replace View vw_aprovados AS
 Select quadro_de_notas.Nota, quadro_de_notas.Cod_Aluno, email_aluno.Email 
 from quadro_de_notas Inner Join email_aluno on quadro_de_notas.Cod_Aluno = email_aluno.Cod_Aluno
 where Nota < 5;
 select * from vw_aprovados;
-*/
+
 /*PROCEDURE - verificar os documentos que contém mais de 200 dias da data de entrada, para permitir ao gestor verificar 
-como anda o prazo de atendimento das demandas.
+como anda o prazo de atendimento das demandas.*/
 
 create procedure pr_tempo_solicitação (Tempo int)
 select documentação.Cod_Solicitação, secretaria.Resultado
@@ -298,10 +298,4 @@ where TIMESTAMPDIFF (DAY, DATA_GERADO, CURRENT_DATE) >= Tempo;
 call pr_tempo_solicitação (200);
 */
  
-/*SCRIPT RODAR ELECTROCRUD   
-
-ALTER USER 'root'@'localhost'
-IDENTIFIED WITH mysql_native_password 
-Onde root seu usuário localhosté seu URL e passwordsua senha
-Em seguida, execute esta consulta para atualizar os privilégios:
-flush privileges */ 
+ 
